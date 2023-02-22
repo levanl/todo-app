@@ -1,0 +1,27 @@
+
+
+.wrapper {
+    width: 400px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    // justify-content: center;
+    background-color: #24273c;
+    border-radius: 7px;
+}
+
+.btn-add {
+    margin-left: 30px;
+    scale: 0.9;
+}
+
+.title-input {
+    background-color: #24273c;
+    border-style: none;
+    color: white;
+    margin-left: 10px;
+    width: 60%;
+    height: 40%;
+    font-size: 18px;
+}
+

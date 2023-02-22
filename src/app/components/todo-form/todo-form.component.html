@@ -1,0 +1,25 @@
+
+<div class="wrapper">
+    
+    <form [formGroup]="myForm"  class="wrap" (ngSubmit)="onSubmit()">
+
+        <!-- Value: {{ myForm.value | json }} -->
+
+        <hr>
+
+        <mat-form-field>
+            <input  matInput  formControlName="title" name="title">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill"> 
+            <mat-label>Textarea</mat-label>
+            <textarea matInput formControlName="description"></textarea>
+          </mat-form-field>
+
+          <button mat-raised-button color="warn"  type="submit" >Submit</button>
+    </form>
+
+
+</div>
+
+
