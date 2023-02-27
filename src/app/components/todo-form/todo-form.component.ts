@@ -2,6 +2,10 @@ import { HttpClient, HttpHeaderResponse, HttpHeaders  } from '@angular/common/ht
 import { Component, ViewEncapsulation, Inject} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { TodoService } from 'src/app/services/todo.service';
+
+
+ 
 declare var firebase: any;
 @Component({
   selector: 'app-todo-form',
@@ -17,7 +21,8 @@ export class TodoFormComponent {
 
   constructor (private fb: FormBuilder,
     public dialogRef: MatDialogRef<TodoFormComponent>,
-    private http: HttpClient
+    private http: HttpClient,
+    private todoService: TodoService
     ) {}
 
   ngOnInit() {

@@ -1,1 +1,12 @@
-<p>todo-table works!</p>
+
+
+<table class="content-table">
+    <tr *ngFor="let todo of allTodos">
+        
+        <td>{{todo.title}} <div class="btn-cont">
+            <button (click)="onDeleteTodo(todo.id)">delete</button>
+            <button (click)="onEditClicked(todo.id)" >edit</button>
+        </div></td>
+        <!-- <td>{{todo.description}}</td> -->
+    </tr>
+</table>

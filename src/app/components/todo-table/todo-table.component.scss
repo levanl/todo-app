@@ -1,0 +1,22 @@
+
+.content-table{
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 18px;
+    min-width: 450px;
+}
+
+
+.content-table td {
+    padding: 12px 15px;
+}
+
+.content-table tr {
+    border-bottom: 1px solid #2e3146;
+    // background-color: #24273c;
+    color: #878eb6;
+}
+.content-table tr:hover {
+    background-color: #f44336;
+    color: white;
+}

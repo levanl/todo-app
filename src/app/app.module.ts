@@ -17,6 +17,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule  } from '@angular/fire/compat'
 import { environment } from 'src/environments/environment';
 import { HttpClientModule } from '@angular/common/http';
+import {MatTableModule} from '@angular/material/table';
+
+
 
 @NgModule({
   declarations: [
@@ -36,7 +39,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatSelectModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent],
