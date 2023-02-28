@@ -15,12 +15,12 @@ declare var firebase: any;
 export class TodoFormComponent {
 
   myForm = this.fb.group({
-    title: ['', Validators.required],
+    title: [this.todoService.inputData, Validators.required],
     description: '',
   })
 
   constructor (private fb: FormBuilder,
-    public dialogRef: MatDialogRef<TodoFormComponent>,
+    public dialogRef: MatDialogRef<TodoFormComponent>, 
     private http: HttpClient,
     private todoService: TodoService
     ) {}
@@ -43,6 +43,7 @@ export class TodoFormComponent {
     subscribe((res) => {
       console.log(res);
     });
+    this.todoService.inputData = ''
   }
 
 }

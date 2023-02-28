@@ -17,6 +17,22 @@
     color: #878eb6;
 }
 .content-table tr:hover {
-    background-color: #f44336;
+    // background-color: #f44336;
     color: white;
+}
+
+
+.icons {
+    scale: 0.8;
+}
+
+
+.todo-map {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-cont {
+    display: flex;
+    gap: 3px;
 }

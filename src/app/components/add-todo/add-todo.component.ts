@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatDialogConfig } from '@angular/material/dialog';
 import { TodoFormComponent } from '../todo-form/todo-form.component';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { TodoService } from 'src/app/services/todo.service';
 
 @Component({
   selector: 'app-add-todo',
@@ -11,7 +12,9 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class AddTodoComponent {
 
-  constructor (private dialog: MatDialog) {}
+  constructor (private dialog: MatDialog,
+    private todoService: TodoService
+    ) {}
 
   open_popup() {
     const dialogConfig = new MatDialogConfig()
@@ -22,7 +25,14 @@ export class AddTodoComponent {
     this.dialog.open(TodoFormComponent, dialogConfig)
   }
 
+  
+
   aha() {
     console.log('vuiahfia')
+  }
+
+  onKey(event){
+    const inputValue = event.target.value
+    this.todoService.inputData = inputValue
   }
 }

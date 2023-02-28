@@ -4,5 +4,5 @@
         <mat-icon>add</mat-icon>
     </button>
 
-    <input  class="title-input" type="text" placeholder="todo title">
+    <input (keyup)="onKey($event)" class="title-input" type="text" placeholder="todo title"  >
 </div>

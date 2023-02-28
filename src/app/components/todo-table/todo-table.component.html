@@ -3,9 +3,9 @@
 <table class="content-table">
     <tr *ngFor="let todo of allTodos">
         
-        <td>{{todo.title}} <div class="btn-cont">
-            <button (click)="onDeleteTodo(todo.id)">delete</button>
-            <button (click)="onEditClicked(todo.id)" >edit</button>
+        <td class="todo-map">{{todo.title}} <div class="btn-cont">
+            <mat-icon class="icons" (click)="onDeleteTodo(todo.id)">delete</mat-icon>
+            <mat-icon class="icons" (click)="onEditClicked(todo.id)">edit</mat-icon>
         </div></td>
         <!-- <td>{{todo.description}}</td> -->
     </tr>
