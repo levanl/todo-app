@@ -4,5 +4,12 @@
         <mat-icon>add</mat-icon>
     </button>
 
-    <input (keyup)="onKey($event)" class="title-input" type="text" placeholder="todo title"  >
+    
+    
+
+    <mdb-form-control class="form-white">
+        <input mdbInput  (keyup)="onKey($event)" type="text" id="form1" class="form-control" />
+        <label mdbLabel class="form-label" for="form1">Todo Name</label>
+      </mdb-form-control>
+      
 </div>

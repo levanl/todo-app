@@ -19,7 +19,9 @@ import { environment } from 'src/environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
 
+import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
 
+import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import {MatTableModule} from '@angular/material/table';
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     HttpClientModule,
-    MatTableModule
+    MatTableModule,
+    MdbFormsModule,
+    MdbCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent],

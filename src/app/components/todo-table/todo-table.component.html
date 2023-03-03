@@ -3,9 +3,21 @@
 <table class="content-table">
     <tr *ngFor="let todo of allTodos">
         
-        <td class="todo-map">{{todo.title}} <div class="btn-cont">
-            <mat-icon class="icons" (click)="onDeleteTodo(todo.id)">delete</mat-icon>
-            <mat-icon class="icons" (click)="onEditClicked(todo.id)">edit</mat-icon>
+        <td class="todo-map">
+            <div class="form-check">
+                <input
+                  mdbCheckbox
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault"
+                  (click)="strikeTodo(todo.id)"
+                />
+              </div>
+            {{todo.title}} 
+            <div class="btn-cont">
+                <mat-icon class="icons" (click)="onDeleteTodo(todo.id)">delete</mat-icon>
+                <mat-icon class="icons" (click)="onEditClicked(todo.id)">edit</mat-icon>
         </div></td>
         <!-- <td>{{todo.description}}</td> -->
     </tr>

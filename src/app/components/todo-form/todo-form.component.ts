@@ -14,6 +14,8 @@ declare var firebase: any;
 })
 export class TodoFormComponent {
 
+
+  // Creates Form
   myForm = this.fb.group({
     title: [this.todoService.inputData, Validators.required],
     description: '',
@@ -23,27 +25,32 @@ export class TodoFormComponent {
     public dialogRef: MatDialogRef<TodoFormComponent>, 
     private http: HttpClient,
     private todoService: TodoService
-    ) {}
+  ) {}
+
 
   ngOnInit() {
-    // this.myForm = this.fb.group ({
-    //   title: 'testt',
-    //   description: 'todotest'
-    // })
+    this.todoService.formOfTodo = this.myForm
   }
+
+
+  /*
+    1. submits new Todo 
+    2. closes dialog
+    3. changes input Data 
+    4. updates Behaviour Subject
+  */
 
   onSubmit() {
     this.dialogRef.close();
-    console.log('submitted form', this.myForm.value)
-    const todoVal =  this.myForm.value
-
-    const header = new HttpHeaders({'header': 'todo'});
-    // firebase.database().ref('/').push({title: this.myForm.value.title, description: this.myForm.value.description})
-    this.http.post('https://todo-ecd9e-default-rtdb.firebaseio.com/todos.json',todoVal, {headers: header}).
+    this.todoService.postTodo().
     subscribe((res) => {
       console.log(res);
     });
     this.todoService.inputData = ''
+    this.todoService.isInEdit = false
+    this.todoService.refreshTodo.next(false);
   }
+
+  
 
 }

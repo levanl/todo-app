@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaderResponse, HttpHeaders  } from '@angular/common/http';
-import { map } from 'rxjs';
+import { BehaviorSubject, map} from 'rxjs';
 import { Todo } from 'src/app/model/todo';
 import { TodoService } from 'src/app/services/todo.service';
+import { switchMap } from 'rxjs/operators';
+import { trigger, transition } from '@angular/animations';
+
 
 
 
@@ -15,14 +18,24 @@ export class TodoTableComponent implements OnInit{
 
   allTodos: Todo[] = [];
 
+
+
   constructor(private http: HttpClient,
   private todoService: TodoService  
   ) {
 
   }
 
+
+
+
   ngOnInit() {
-    this.fetchTodo();
+
+    this.todoService.refreshNeeded.subscribe(()=> {
+      this.onTodoFetch();
+    })
+
+    this.onTodoFetch()
   }
 
   onTodoFetch() {
@@ -31,7 +44,7 @@ export class TodoTableComponent implements OnInit{
 
 
   private fetchTodo() {
-    this.http.get<{[key: string]: Todo}>('https://todo-ecd9e-default-rtdb.firebaseio.com/todos.json')
+    this.todoService.getTodos()
     .pipe(map((res) => {
       
       const todoArr = [];
@@ -48,9 +61,10 @@ export class TodoTableComponent implements OnInit{
     } )
   }
 
+  
   onDeleteTodo(id:string) {
-    this.http.delete('https://todo-ecd9e-default-rtdb.firebaseio.com/todos/'+id+'.json')
-    .subscribe();
+    this.todoService.onDeleteTodo(id).subscribe(() => {
+  })
 
   }
 
@@ -61,6 +75,12 @@ export class TodoTableComponent implements OnInit{
      return p.id === id
     });
     console.log(currentTodo)
+    this.todoService.isInEdit = true;
+    
+  console.log(this.todoService.isInEdit)
+  }
 
+  strikeTodo(id:string) {
+    
   }
 }
